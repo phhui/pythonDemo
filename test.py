@@ -1,21 +1,22 @@
 import json
 dict={'phhui':{'key':'xxxxx'},'56lea':'abcdef'}
-print json.dumps(dict)
-print dict['phhui'].get('key')
-print len(dict)>1 and True or False
-
-for i in dict:
-    print str(i)
-    print dict[i]
-
-dict['phhui']=None
-
-if dict['phhui']:
-    print dict['phhui']
+print dict.get('phhuib')
+if dict.get('phhuib')==False:
+    print 'aa'
 else :
-    print 'null'
+    print 'bb'
 
-if dict.get('56lea'):
-    print dict['56lea']
-else :
-    print 'no'
+def reqtest(param):
+    if param==1:
+        return {'name':'txw'}
+    elif param==2:
+        return True
+    else:
+        return False
+print reqtest(1)
+print reqtest(2)
+print reqtest(3)
+
+def abc():
+    return 'ok' if reqtest(1) else reqtest(2)
+print abc()
