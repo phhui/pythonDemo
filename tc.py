@@ -12,50 +12,6 @@ appid="1106175648"
 appkey="12345f9a47df4d1eaeb3bad9a7e54321"
 sigkey=appkey+"&"
 
-#get tencent user base info
-def getUserInfo(self,param):
-    param["appid"]=self.appid
-    if param.get('sig')==None:
-        param["sig"]=get_sig(param,self.userInfoApi)
-    data=urllib.urlencode(param)
-    res=requests.get(self.openapi+self.userInfoApi+"?"+data)
-    print res.content
-    return res.content
-
-#check login status
-def login_status(self,param):
-    param["appid"]=self.appid
-    if param.get('sig')==None:
-        param["sig"]=self.get_sig(param,self.checkLogin)
-    data=urllib.urlencode(param)
-    res=requests.get(self.openapi+self.checkLogin+"?"+data)
-    print res.content
-    res=eval(res.content)
-    if res["ret"]==0:
-        return True
-    else:
-        return False
-
-#recharge api
-def recharge(self,param):
-    param["appid"]=self.appid
-    ts=int(time.time())
-    if param.get('userip'):
-        param.pop('userip')
-    param["ts"]=ts
-    if param.get('sig')==None:
-        param["sig"]=self.paysig(copy.deepcopy(param),self.rechargeApi)
-    print "sig:"+param["sig"]
-    data=urllib.urlencode(param)
-    url=self.openapi+self.rechargeApi+"?"+data
-    print 'url:'+url
-    res=requests.get(url)
-    print "recharge result:"+res.content
-    res=eval(res.content)
-    if res["ret"]==0:
-        return baseVar.resObj(True,{'token':res.token,'url_params':res.url_params})
-    return baseVar.resObj(False,'unknow error')
-
 #get tencent sig key
 def get_sig(self,param,api):
     if param.get("pfkey"):
