@@ -7,10 +7,11 @@
 '''
 
 #TEST数据库信息
-DB_TEST_HOST="www.56lea.com";
+#DB_TEST_HOST="www.56lea.com";
+DB_TEST_HOST="127.0.0.1";
 DB_TEST_PORT=3306;
-DB_TEST_DBNAME="ldsg";
-DB_TEST_USER="phhui";
+DB_TEST_DBNAME="phhui";
+DB_TEST_USER="root";
 DB_TEST_PASSWORD="phhuicom";
 
 
