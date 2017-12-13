@@ -5,10 +5,15 @@ sig=urllib.urlencode(data)
 sig=urllib.quote(sig)
 #print sig
 
-ui='/v3/user/get_info'
-ui={'':ui}
+url='/v3/user/get_%info=xx'
+ui={'':url}
 ui=urllib.urlencode(ui)
 ui=ui[1:len(ui)]
-#print ui
-#ui=urllib.quote(ui)
 print ui
+
+uj=urllib.quote(url)
+print uj
+
+uk=urllib.quote_plus(url)
+print uk
+

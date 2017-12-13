@@ -1,2 +1,5 @@
-s="abcdefghijklmn"
-print s[2:len(s)]
+s="abcdefghij#klmn"
+spos=s.index('#')
+print s[0:spos]
+print s[spos+1:len(s)]
+
